@@ -93,4 +93,9 @@ public interface UserMapper {
      * @mbg.generated Thu Apr 02 23:41:33 CST 2020
      */
     int updateByPrimaryKey(User record);
+
+    //新创建的用于完成登陆的
+	User findByUsernameAndPassword(@Param("name")String name,@Param("password") String password);
+
+	
 }

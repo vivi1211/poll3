@@ -300,4 +300,14 @@
       type = #{type,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <!-- 新加的登陆 -->
+  <select id="findByUsernameAndPassword" resultMap="BaseResultMap">
+  select 
+    <include refid="Base_Column_List" />
+    from poll_user
+    where name = #{name}
+<!--  select id,name,gender,birth,hiredate,type from poll_user where name=#{name} -->
+  </select>
+  
 </mapper>

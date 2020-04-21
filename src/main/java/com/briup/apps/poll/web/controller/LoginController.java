@@ -18,7 +18,13 @@ public class LoginController {
 	    public String login(){
 	        return "login";
 	    }
+	   
+	    @RequestMapping(value="/index")
+	    public String index(){
+	        return "index";
+	    }
 	    
+	 
 
 	
 }

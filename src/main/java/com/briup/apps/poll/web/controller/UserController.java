@@ -17,6 +17,7 @@ import com.briup.apps.poll.service.IUserService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.Response;
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -53,13 +54,15 @@ private IUserService userService;
 		try {
 			//登陆成功后跳转到查询员工所有
 			ModelAndView mv = new ModelAndView("login");
+			ModelAndView ad = new ModelAndView("admin/admin_main");
 		
 				User user=userService.login(name, password);
 				//判断user为空  用户名密码错误   //不为空  登陆成功
 				if(user!=null) {
 					session.setAttribute("user", user);
 					//应该是回到用户主界面，但是还没写
-					return null;
+					
+					return ad;
 				}else {
 					return mv; 
 				}
